@@ -16,7 +16,7 @@ node {
          * docker build on the command line */
 
 
-        echo "image built succeffully"'
+        echo "image built succeffully"
      
     }
    stage('Test image') {
