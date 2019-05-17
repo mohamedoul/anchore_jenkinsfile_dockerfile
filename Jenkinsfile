@@ -24,6 +24,7 @@ node {
       Analyze: {
    
           writeFile file: 'anchore_images', text: imageLine
+          sh "chmod 777 anchore_images"
           anchore name: 'anchore_images'
 }
 }
