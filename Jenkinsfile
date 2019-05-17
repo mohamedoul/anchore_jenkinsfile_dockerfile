@@ -15,7 +15,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("hellonode")   
+
         echo "image built succeffully"'
      
     }
@@ -24,7 +24,7 @@ node {
       Analyze: {
    
           writeFile file: 'anchore_images', text: imageLine
-          sh "chmod 777 anchore_images"
+ 
           anchore name: 'anchore_images'
 }
 }
