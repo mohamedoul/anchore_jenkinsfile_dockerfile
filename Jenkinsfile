@@ -1,5 +1,8 @@
 node {
-    def app
+  def app
+  def dockerfile
+  def anchorefile
+  def repotag
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
