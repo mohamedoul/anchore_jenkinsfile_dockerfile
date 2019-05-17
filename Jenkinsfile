@@ -2,6 +2,7 @@ node {
   def app
   def dockerfile
   def anchorefile
+ def imageLine = 'hellonode'
   def repotag
 
     stage('Clone repository') {
@@ -15,14 +16,15 @@ node {
          * docker build on the command line */
 
         app = docker.build("hellonode")
-        sh "hellonode > anchorefile"
+   
         sh 'echo "image built succeffully"'
     }
    stage('Test image') {
        
       Analyze: {
-        writeFile file: anchorefile, text: inputConfig['dockerRegistryHostname'] + "/" + repotag + " " + dockerfile
-        anchore name: anchorefile, engineurl: inputConfig['anchoreEngineUrl'], engineCredentialsId: inputConfig['anchoreEngineCredentials'], annotations: [[key: 'added-by', value: 'jenkins']]
+          def imageLine = 'debian:latest'
+          writeFile file: 'anchore_images', text: imageLine
+          anchore name: 'anchore_images'
 }
 }
 }
