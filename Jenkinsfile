@@ -17,7 +17,7 @@ node {
 
         app = docker.build("hellonode")   
         echo "image built succeffully"'
-         sh ' docker run -d '
+        sh ''echo "docker run -d" ''
     }
    stage('Test image') {
        
